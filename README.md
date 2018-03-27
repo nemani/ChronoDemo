@@ -5,3 +5,4 @@ Microinteractions guide a user through your application. They reinforce your use
 You may have seen some of the slick examples of microinteractions on Dribble or CodePen. But do you know how to build your own library of similar UI widgets?
 
 Live [demo](https://search-animation.firebaseapp.com)
+# ChronoDemo
