@@ -33,8 +33,8 @@ class App extends Component {
             left: "50%",
             transform: "translate(-50%, -50%)"
         };
-        let lol = "Enter text to tryout compromise";
-        let results = chrono.parset(his.state.val);
+        let lol = "Enter text to tryout chrono";
+        let results = chrono.parse(this.state.val);
         if (results[0]) {
             console.log(results);
             lol = JSON.stringify(results, null, 2);
@@ -49,8 +49,11 @@ class App extends Component {
                         />
                         <br />
                         <span style={{ fontWeight: "bold" }}>
-                            Compromise Date-Words Detection Demo
+                            <a href="https://github.com/wanasit/chrono">
+                                Chrono
+                            </a>{" "}
                         </span>
+                        Date-Words Detection Demo
                     </div>
                     <br />
                     <br />
