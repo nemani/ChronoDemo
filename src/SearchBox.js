@@ -1,14 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import {TextField, IconButton} from 'material-ui'
-import SearchIcon from 'material-ui/svg-icons/action/search';
+import { TextField, IconButton } from "material-ui";
+import SearchIcon from "material-ui/svg-icons/action/search";
 
 const baseStyles = {
     open: {
-        width: 300,
-    },
-    closed: {
-        width: 0,
+        width: 300
     },
     smallIcon: {
         width: 30,
@@ -21,14 +18,21 @@ const baseStyles = {
         top: 10
     },
     frame: {
-        border: 'solid 1px black',
+        border: "solid 1px black",
         borderRadius: 5
     }
 };
 
-const SearchBox = ({isOpen, query, onClick, onSubmit, onQueryUpdate, additionalStyles, frameClass}) => {
-
-    const handleKeyDown = (event) => {
+const SearchBox = ({
+    isOpen,
+    query,
+    onClick,
+    onSubmit,
+    onQueryUpdate,
+    additionalStyles,
+    frameClass
+}) => {
+    const handleKeyDown = event => {
         const ENTER_KEY = 13;
         if (event.keyCode === ENTER_KEY) {
             event.preventDefault();
@@ -37,24 +41,37 @@ const SearchBox = ({isOpen, query, onClick, onSubmit, onQueryUpdate, additionalS
     };
 
     let textStyle = isOpen ? baseStyles.open : baseStyles.closed;
-    textStyle = Object.assign(textStyle, additionalStyles ? additionalStyles.text : {});
+    textStyle = Object.assign(
+        textStyle,
+        additionalStyles ? additionalStyles.text : {}
+    );
 
-    const divStyle = Object.assign({}, textStyle, baseStyles.frame, additionalStyles ? additionalStyles.frame : {});
+    const divStyle = Object.assign(
+        {},
+        textStyle,
+        baseStyles.frame,
+        additionalStyles ? additionalStyles.frame : {}
+    );
     divStyle.width += baseStyles.icon.width + 5;
 
     return (
-        <div style={divStyle} className={frameClass ? frameClass : ''}>
-            <IconButton iconStyle={baseStyles.smallIcon} style={baseStyles.icon} onClick={() => onClick()}>
+        <div style={divStyle} className={frameClass ? frameClass : ""}>
+            <IconButton
+                iconStyle={baseStyles.smallIcon}
+                style={baseStyles.icon}
+                onClick={() => onClick()}
+            >
                 <SearchIcon />
             </IconButton>
-            <TextField name='search'
-                       style={textStyle}
-                       value={query}
-                       onKeyDown={handleKeyDown}
-                       onChange={(event, value) => onQueryUpdate(value)}/>
+            <TextField
+                name="search"
+                style={textStyle}
+                value={query}
+                onKeyDown={handleKeyDown}
+                onChange={(event, value) => onQueryUpdate(value)}
+            />
         </div>
     );
 };
 
-
-export  default SearchBox;
+export default SearchBox;

@@ -1,0 +1,61 @@
+Arguments: 
+  /home/arjun/.nvm/versions/node/v8.9.4/bin/node /usr/share/yarn/bin/yarn.js start
+
+PATH: 
+  /home/arjun/.rbenv/plugins/ruby-build/bin:/home/arjun/.rbenv/shims:/home/arjun/.rbenv/bin:/home/arjun/.nvm/versions/node/v8.9.4/bin:/home/arjun/.cargo/bin:/home/arjun/bin:/home/arjun/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/arjun/.yarn/bin:/home/arjun/.gem/ruby/2.3.0/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.4
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "name": "search-box-animation",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {
+      "react-scripts": "0.8.5"
+    },
+    "dependencies": {
+      "aphrodite": "^1.1.0",
+      "material-ui": "^0.16.7",
+      "react": "^15.4.2",
+      "react-animations": "^0.1.0",
+      "react-dom": "^15.4.2",
+      "react-motion": "^0.4.7",
+      "react-tap-event-plugin": "^2.0.1"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 127
+  Command: sh
+  Arguments: -c react-scripts start
+  Directory: /home/arjun/OpenSourceProjects/compromise-demo
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/share/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/share/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/share/yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
