@@ -1,73 +1,34 @@
 import React from "react";
 
-import { TextField, IconButton } from "material-ui";
-import SearchIcon from "material-ui/svg-icons/action/search";
+import { TextField } from "material-ui";
 
 const baseStyles = {
     open: {
-        width: 300
-    },
-    smallIcon: {
-        width: 30,
-        height: 30
-    },
-    icon: {
-        width: 40,
-        height: 40,
-        padding: 5,
-        top: 10
+        width: "50vw"
     },
     frame: {
+        padding: 3,
         border: "solid 1px black",
         borderRadius: 5
     }
 };
 
-const SearchBox = ({
-    isOpen,
-    query,
-    onClick,
-    onSubmit,
-    onQueryUpdate,
-    additionalStyles,
-    frameClass
-}) => {
-    const handleKeyDown = event => {
-        const ENTER_KEY = 13;
-        if (event.keyCode === ENTER_KEY) {
-            event.preventDefault();
-            onSubmit();
-        }
-    };
-
-    let textStyle = isOpen ? baseStyles.open : baseStyles.closed;
-    textStyle = Object.assign(
-        textStyle,
-        additionalStyles ? additionalStyles.text : {}
-    );
-
+const SearchBox = ({ query, onQueryUpdate, additionalStyles, frameClass }) => {
+    let textStyle = baseStyles.open;
     const divStyle = Object.assign(
         {},
         textStyle,
         baseStyles.frame,
         additionalStyles ? additionalStyles.frame : {}
     );
-    divStyle.width += baseStyles.icon.width + 5;
 
     return (
         <div style={divStyle} className={frameClass ? frameClass : ""}>
-            <IconButton
-                iconStyle={baseStyles.smallIcon}
-                style={baseStyles.icon}
-                onClick={() => onClick()}
-            >
-                <SearchIcon />
-            </IconButton>
             <TextField
-                name="search"
+                id="future_input"
+                name="future_input"
                 style={textStyle}
                 value={query}
-                onKeyDown={handleKeyDown}
                 onChange={(event, value) => onQueryUpdate(value)}
             />
         </div>

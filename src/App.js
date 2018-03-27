@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import chrono from "chrono-node";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { SelectField, MenuItem } from "material-ui";
 
 // (Make material-ui happy)
 // Needed for onTouchTap
@@ -10,11 +10,21 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
 
 import SearchBox from "./SearchBox";
-import { makeTranslateUp } from "./move-up-animations";
-
-const TranslateUp = makeTranslateUp(SearchBox);
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            val:
+                "The event start at 9AM on monday and will end at midnight on friday."
+        };
+    }
+    parsed(str) {
+        this.setState({
+            val: str
+        });
+    }
+
     render() {
         //https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
         const style = {
@@ -23,13 +33,30 @@ class App extends Component {
             left: "50%",
             transform: "translate(-50%, -50%)"
         };
-
+        let lol = "Enter text to tryout compromise";
+        let results = chrono.parset(his.state.val);
+        if (results[0]) {
+            console.log(results);
+            lol = JSON.stringify(results, null, 2);
+        }
         return (
             <MuiThemeProvider>
-                <div style={style}>
-                    <TranslateUp />
+                <div>
+                    <div style={style}>
+                        <SearchBox
+                            query={this.state.val}
+                            onQueryUpdate={this.parsed.bind(this)}
+                        />
+                        <br />
+                        <span style={{ fontWeight: "bold" }}>
+                            Compromise Date-Words Detection Demo
+                        </span>
+                    </div>
                     <br />
-                    Click the Search icon to animate.
+                    <br />
+                    <span>
+                        <pre>{lol}</pre>
+                    </span>
                 </div>
             </MuiThemeProvider>
         );
